@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Cekat Track SDK</title>
+
+  <!--
+    ============================================
+    PASTE YOUR CEKAT TRACK SDK CODE BELOW
+    ============================================
+  -->
+
+  <script>
+    !function(c,e,k,a,t){
+      c.ckt=c.ckt||function(){(c.ckt.q=c.ckt.q||[]).push(arguments)};
+      c.ckt.l=+new Date;
+      t=e.getElementsByTagName(k)[0];a=e.createElement(k);
+      a.async=true;a.src='http://localhost:8080/js/cktevents.js';
+      t.parentNode.insertBefore(a,t);
+    }(window,document,'script');
+    ckt('0eb00dec-432c-42cf-ac47-04fb54f4a332', {
+      whatsappInterception: true,  // Enable WhatsApp link interception
+      debug: true                   // Enable debug logging
+    });
+  </script>
+  <!-- ============================================ -->
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .nav a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: white;
+      border-radius: 10px;
+      padding: 60px 40px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      color: #667eea;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    /* Products */
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 30px;
+      text-align: center;
+      color: #667eea;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-name {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .product-price {
+      font-size: 24px;
+      color: #667eea;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #667eea;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+    }
+
+    .btn-success {
+      background: #48bb78;
+      color: white;
+    }
+
+    .btn-success:hover {
+      background: #38a169;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+      text-align: left;
+    }
+
+    .btn-whatsapp:hover {
+      background: #128C7E;
+    }
+
+    .btn-whatsapp small {
+      opacity: 0.7;
+      font-weight: 400;
+    }
+
+    code {
+      background: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+
+    /* Contact Form */
+    .contact-section {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    .contact-section h2 {
+      margin-bottom: 20px;
+      color: #667eea;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: border-color 0.3s;
+      font-family: inherit;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    /* WhatsApp Buttons */
+    .whatsapp-section {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+
+    .whatsapp-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    /* Debug Panel */
+    .debug-panel {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.9);
+      color: #0f0;
+      padding: 20px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 12px;
+      max-width: 350px;
+      z-index: 999;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    .debug-panel h4 {
+      color: #fff;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .debug-item {
+      margin-bottom: 10px;
+      word-break: break-all;
+    }
+
+    .debug-label {
+      color: #888;
+      font-size: 11px;
+    }
+
+    .debug-value {
+      color: #0f0;
+    }
+
+    /* Notification */
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #48bb78;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      display: none;
+      z-index: 1000;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .notification.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <div class="header-content">
+      <div class="logo">🛍️ Test Store</div>
+      <nav class="nav">
+        <a href="#products">Products</a>
+        <a href="#whatsapp">WhatsApp</a>
+        <a href="#contact">Contact</a>
+        <a href="test-about.html">About</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Welcome! 👋</h1>
+      <p>This is a test website to verify your Cekat Track SDK installation</p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary" onclick="testCustomEvent()">Test Custom Event</button>
+        <button class="btn btn-success" onclick="testPageView()">Test Page View</button>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+      <h2 class="section-title">Test Products</h2>
+      <div class="products">
+        <div class="product-card" onclick="goToProductPage('PROD-001', 'Premium Headphones', 299000)">
+          <div class="product-image">🎧</div>
+          <div class="product-info">
+            <div class="product-name">Premium Headphones</div>
+            <div class="product-price">Rp 299,000</div>
+            <button class="btn btn-primary btn-block" onclick="addToCart(event, 'PROD-001', 'Premium Headphones', 299000)">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card" onclick="viewProduct('PROD-002', 'Wireless Mouse', 149000)">
+          <div class="product-image">🖱️</div>
+          <div class="product-info">
+            <div class="product-name">Wireless Mouse</div>
+            <div class="product-price">Rp 149,000</div>
+            <button class="btn btn-primary btn-block" onclick="addToCart(event, 'PROD-002', 'Wireless Mouse', 149000)">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card" onclick="viewProduct('PROD-003', 'Mechanical Keyboard', 599000)">
+          <div class="product-image">⌨️</div>
+          <div class="product-info">
+            <div class="product-name">Mechanical Keyboard</div>
+            <div class="product-price">Rp 599,000</div>
+            <button class="btn btn-primary btn-block" onclick="addToCart(event, 'PROD-003', 'Mechanical Keyboard', 599000)">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WhatsApp Section -->
+    <section id="whatsapp" class="whatsapp-section">
+      <h2 class="section-title">Test WhatsApp Tracking</h2>
+      <p style="text-align: center; margin-bottom: 20px; color: #666;">
+        Click these buttons to test WhatsApp interception with visitor ID injection
+      </p>
+      <p style="text-align: center; margin-bottom: 30px; color: #999; font-size: 14px;">
+        <strong>Without placeholder:</strong> Message will be prepended with <code>[VISITOR_ID]</code><br>
+        <strong>With {visitor_id}:</strong> Placeholder will be replaced with <code>[VISITOR_ID]</code>
+      </p>
+      <div class="whatsapp-buttons">
+        <a href="https://wa.me/6289696125523?text=Hello, I'm interested in your products" class="btn btn-whatsapp">
+          💬 Chat with Sales
+          <small style="font-size: 11px; opacity: 0.8; display: block;">Result: [VID] Hello, I'm interested...</small>
+        </a>
+        <a href="https://wa.me/6289696125523?text=I need support" class="btn btn-whatsapp">
+          🛠️ Get Support
+          <small style="font-size: 11px; opacity: 0.8; display: block;">Result: [VID] I need support</small>
+        </a>
+        <a href="https://wa.me/6289696125523?text=Hello, my promo code is {visitor_id}, can you help?" class="btn btn-whatsapp">
+          🎁 Use Promo Code
+          <small style="font-size: 11px; opacity: 0.8; display: block;">Result: Hello, my promo code is [VID]...</small>
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=6289696125523&text=Ask about pricing for visitor {visitor_id}" class="btn btn-whatsapp">
+          💰 Ask About Pricing
+          <small style="font-size: 11px; opacity: 0.8; display: block;">Result: Ask about pricing for visitor [VID]</small>
+        </a>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact">
+      <div class="contact-section">
+        <h2>📬 Test Contact Form</h2>
+        <p style="margin-bottom: 20px; color: #666;">
+          Submit this form to test form tracking
+        </p>
+
+        <form id="contact-form" onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label>Name *</label>
+            <input type="text" name="name" required placeholder="John Doe">
+          </div>
+
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" name="email" required placeholder="john@example.com">
+          </div>
+
+          <div class="form-group">
+            <label>Phone *</label>
+            <input type="tel" name="phone" required placeholder="+628123456789">
+          </div>
+
+          <div class="form-group">
+            <label>Message</label>
+            <textarea name="message" placeholder="Your message here..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-success btn-block">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="notification" class="notification"></div>
+
+  <!-- Debug Panel -->
+  <div class="debug-panel" id="debugPanel">
+    <h4>🔍 Tracker Debug</h4>
+    <div class="debug-item">
+      <div class="debug-label">Status:</div>
+      <div class="debug-value" id="debug-status">Initializing...</div>
+    </div>
+    <div class="debug-item">
+      <div class="debug-label">Visitor ID:</div>
+      <div class="debug-value" id="debug-visitor">Loading...</div>
+    </div>
+    <div class="debug-item">
+      <div class="debug-label">Fingerprint:</div>
+      <div class="debug-value" id="debug-fingerprint">Loading...</div>
+    </div>
+    <div class="debug-item">
+      <div class="debug-label">Events Sent:</div>
+      <div class="debug-value" id="debug-events">0</div>
+    </div>
+  </div>
+
+  <script>
+    let eventCount = 0;
+
+    // Wait for Tracker to initialize
+    function waitForTracker(callback) {
+      if (window.ckt && typeof window.ckt.getVisitorId === 'function') {
+        callback();
+      } else {
+        setTimeout(() => waitForTracker(callback), 100);
+      }
+    }
+
+    // Update debug panel
+    function updateDebug() {
+      if (window.ckt) {
+        const visitorId = window.ckt.getVisitorId() || 'Not set';
+        const fingerprint = window.ckt.getFingerprint() || 'Loading...';
+
+        document.getElementById('debug-visitor').textContent = visitorId.substring(0, 20) + (visitorId.length > 20 ? '...' : '');
+        document.getElementById('debug-fingerprint').textContent = fingerprint.substring(0, 20) + (fingerprint.length > 20 ? '...' : '');
+        document.getElementById('debug-status').textContent = '✅ Active';
+      }
+    }
+
+    // Increment event counter
+    function incrementEventCount() {
+      eventCount++;
+      document.getElementById('debug-events').textContent = eventCount;
+    }
+
+    // Show notification
+    function showNotification(message) {
+      const notification = document.getElementById('notification');
+      notification.textContent = message;
+      notification.classList.add('show');
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 3000);
+    }
+
+    // Test custom event (auto-tracking only)
+    function testCustomEvent() {
+      // Auto-tracking will capture this button click automatically
+      showNotification('✅ Button click auto-tracked!');
+      console.log('[Test] Button click will be auto-tracked');
+    }
+
+    // Test page view (auto-tracking only)
+    function testPageView() {
+      // Page views are auto-tracked on page load
+      showNotification('✅ Page views are auto-tracked on load!');
+      console.log('[Test] Page view was auto-tracked on load');
+    }
+
+    // Track product view (auto-tracking only)
+    function viewProduct(productId, productName, price) {
+      // Auto-tracking will capture the click automatically
+      console.log('[Test] Product click auto-tracked:', productName);
+    }
+
+    // Track product view and navigate to product page
+    function goToProductPage(productId, productName, price) {
+      viewProduct(productId, productName, price);
+      setTimeout(() => {
+        window.location.href = 'test-product-page.html';
+      }, 300);
+    }
+
+    // Track add to cart (auto-tracking only)
+    function addToCart(event, productId, productName, price) {
+      event.stopPropagation();
+
+      // Auto-tracking will capture the button click automatically
+      console.log('[Test] Add to cart button click auto-tracked:', productName);
+      showNotification(`✅ ${productName} added to cart!`);
+    }
+
+    // Handle form submission (auto-tracking only)
+    async function handleFormSubmit(event) {
+      event.preventDefault();
+
+      const form = event.target;
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      console.log('[Test] Form data:', data);
+      console.log('[Test] Form submission auto-tracked');
+
+      // Auto-tracking will capture the form submit automatically
+      showNotification('✅ Form submitted & auto-tracked!');
+      form.reset();
+    }
+
+    // Initialize debug panel
+    waitForTracker(() => {
+      console.log('[Test] Tracker initialized!');
+      console.log('[Test] Visitor ID:', window.ckt.getVisitorId());
+      console.log('[Test] Fingerprint:', window.ckt.getFingerprint());
+
+      updateDebug();
+      setInterval(updateDebug, 2000);
+
+      console.log('[Test] Auto-tracking is active - all clicks and form submits will be tracked');
+    });
+
+    // Show instructions on load
+    window.addEventListener('load', () => {
+      console.log('%c=================================', 'color: #667eea; font-weight: bold;');
+      console.log('%cCEKAT TRACK TEST WEBSITE', 'color: #667eea; font-weight: bold; font-size: 16px;');
+      console.log('%c=================================', 'color: #667eea; font-weight: bold;');
+      console.log('%cCheck the debug panel (bottom right) for tracking status', 'color: #666;');
+      console.log('%cAll tracking events will be logged here in the console', 'color: #666;');
+      console.log('%cTry:', 'color: #666; font-weight: bold;');
+      console.log('  • Click products to track views', 'color: #666;');
+      console.log('  • Add to cart', 'color: #666;');
+      console.log('  • Submit the contact form', 'color: #666;');
+      console.log('  • Click WhatsApp buttons', 'color: #666;');
+      console.log('%c=================================', 'color: #667eea; font-weight: bold;');
+    });
+  </script>
+</body>
+</html>

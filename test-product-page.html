@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - Test Cekat Track</title>
+
+  <!--
+    ============================================
+    PASTE YOUR CEKAT TRACK SDK CODE BELOW
+    ============================================
+  -->
+  <script>
+    !function(c,e,k,a,t){
+      c.ckt=c.ckt||function(){(c.ckt.q=c.ckt.q||[]).push(arguments)};
+      c.ckt.l=+new Date;
+      t=e.getElementsByTagName(k)[0];a=e.createElement(k);
+      a.async=true;a.src='https://stg-t.cekat.ai/js/cktevents.js';
+      t.parentNode.insertBefore(a,t);
+    }(window,document,'script');
+    ckt('22db7fd1-d23a-49b3-8af4-fea59c5f7f85');
+  </script>
+  <!-- ============================================ -->
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      text-decoration: none;
+      color: white;
+    }
+
+    .nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .nav a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .breadcrumb {
+      padding: 15px 0;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .breadcrumb a {
+      color: #667eea;
+      text-decoration: none;
+    }
+
+    .product-detail {
+      background: white;
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .product-image {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 10px;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 120px;
+    }
+
+    .product-info h1 {
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .product-price {
+      font-size: 36px;
+      color: #667eea;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .product-description {
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .product-specs {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .product-specs h3 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .product-specs ul {
+      list-style: none;
+    }
+
+    .product-specs li {
+      padding: 8px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .product-specs li:last-child {
+      border-bottom: none;
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      padding: 16px 32px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: #667eea;
+      color: white;
+      flex: 1;
+    }
+
+    .btn-primary:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: #48bb78;
+      color: white;
+      flex: 1;
+    }
+
+    .btn-secondary:hover {
+      background: #38a169;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-whatsapp:hover {
+      background: #128C7E;
+    }
+
+    .share-section {
+      padding-top: 20px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .share-section h4 {
+      margin-bottom: 10px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .share-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .share-btn {
+      padding: 10px 20px;
+      background: #f8f9fa;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 14px;
+    }
+
+    .share-btn:hover {
+      background: #e9ecef;
+      transform: translateY(-2px);
+    }
+
+    .debug-panel {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.9);
+      color: #0f0;
+      padding: 20px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 12px;
+      max-width: 350px;
+      z-index: 999;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    .debug-panel h4 {
+      color: #fff;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .debug-item {
+      margin-bottom: 10px;
+      word-break: break-all;
+    }
+
+    .debug-label {
+      color: #888;
+      font-size: 11px;
+    }
+
+    .debug-value {
+      color: #0f0;
+    }
+
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #48bb78;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      display: none;
+      z-index: 1000;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .notification.show {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .product-detail {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .product-image {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <div class="header-content">
+      <a href="index.html" class="logo">🛍️ Test Store</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="test-about.html">About</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> / <a href="index.html#products">Products</a> / Premium Headphones
+    </div>
+
+    <!-- Product Detail -->
+    <div class="product-detail">
+      <div class="product-image">
+        🎧
+      </div>
+
+      <div class="product-info">
+        <h1>Premium Wireless Headphones</h1>
+        <div class="product-price">Rp 299,000</div>
+
+        <div class="product-description">
+          <p>Experience superior sound quality with our Premium Wireless Headphones. Featuring active noise cancellation,
+          30-hour battery life, and premium comfort padding. Perfect for music lovers and professionals alike.</p>
+        </div>
+
+        <div class="product-specs">
+          <h3>Specifications</h3>
+          <ul>
+            <li><strong>Driver Size:</strong> 40mm</li>
+            <li><strong>Frequency Response:</strong> 20Hz - 20kHz</li>
+            <li><strong>Battery Life:</strong> Up to 30 hours</li>
+            <li><strong>Connectivity:</strong> Bluetooth 5.0</li>
+            <li><strong>Noise Cancellation:</strong> Active ANC</li>
+            <li><strong>Weight:</strong> 250g</li>
+          </ul>
+        </div>
+
+        <div class="product-actions">
+          <button class="btn btn-primary" onclick="addToCart()">
+            Add to Cart
+          </button>
+          <button class="btn btn-secondary" onclick="buyNow()">
+            Buy Now
+          </button>
+        </div>
+
+        <a href="https://wa.me/6289696125523?text=Hi, I'm interested in Premium Wireless Headphones (Rp 299,000)"
+           class="btn btn-whatsapp">
+          💬 Ask via WhatsApp
+        </a>
+
+        <div class="share-section">
+          <h4>Share this product:</h4>
+          <div class="share-buttons">
+            <button class="share-btn" onclick="shareProduct('facebook')">Facebook</button>
+            <button class="share-btn" onclick="shareProduct('twitter')">Twitter</button>
+            <button class="share-btn" onclick="shareProduct('copy')">Copy Link</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="notification" class="notification"></div>
+
+  <!-- Debug Panel -->
+  <div class="debug-panel">
+    <h4>🔍 Tracker Debug</h4>
+    <div class="debug-item">
+      <div class="debug-label">Status:</div>
+      <div class="debug-value" id="debug-status">Initializing...</div>
+    </div>
+    <div class="debug-item">
+      <div class="debug-label">Visitor ID:</div>
+      <div class="debug-value" id="debug-visitor">Loading...</div>
+    </div>
+    <div class="debug-item">
+      <div class="debug-label">Current Page:</div>
+      <div class="debug-value" id="debug-page">Product Detail</div>
+    </div>
+    <div class="debug-item">
+      <div class="debug-label">Events Sent:</div>
+      <div class="debug-value" id="debug-events">0</div>
+    </div>
+  </div>
+
+  <script>
+    let eventCount = 0;
+
+    function waitForTracker(callback) {
+      if (window.Tracker && window.Tracker.getVisitorId()) {
+        callback();
+      } else {
+        setTimeout(() => waitForTracker(callback), 100);
+      }
+    }
+
+    function updateDebug() {
+      if (window.Tracker) {
+        const visitorId = window.Tracker.getVisitorId() || 'Not set';
+        document.getElementById('debug-visitor').textContent = visitorId.substring(0, 20) + (visitorId.length > 20 ? '...' : '');
+        document.getElementById('debug-status').textContent = '✅ Active';
+      }
+    }
+
+    function incrementEventCount() {
+      eventCount++;
+      document.getElementById('debug-events').textContent = eventCount;
+    }
+
+    function showNotification(message) {
+      const notification = document.getElementById('notification');
+      notification.textContent = message;
+      notification.classList.add('show');
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 3000);
+    }
+
+    function addToCart() {
+      if (window.Tracker) {
+        window.Tracker.track('add_to_cart', {
+          product_id: 'PROD-001',
+          product_name: 'Premium Wireless Headphones',
+          price: 299000,
+          quantity: 1,
+          currency: 'IDR'
+        });
+        incrementEventCount();
+        console.log('[Test] Add to cart tracked');
+      }
+      showNotification('✅ Added to cart!');
+    }
+
+    function buyNow() {
+      if (window.Tracker) {
+        window.Tracker.track('buy_now_clicked', {
+          product_id: 'PROD-001',
+          product_name: 'Premium Wireless Headphones',
+          price: 299000,
+          currency: 'IDR'
+        });
+        incrementEventCount();
+        console.log('[Test] Buy now clicked');
+      }
+      showNotification('✅ Proceeding to checkout...');
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 1500);
+    }
+
+    function shareProduct(platform) {
+      if (window.Tracker) {
+        window.Tracker.track('product_shared', {
+          product_id: 'PROD-001',
+          product_name: 'Premium Wireless Headphones',
+          platform: platform
+        });
+        incrementEventCount();
+        console.log('[Test] Product shared:', platform);
+      }
+
+      if (platform === 'copy') {
+        navigator.clipboard.writeText(window.location.href);
+        showNotification('✅ Link copied!');
+      } else {
+        showNotification(`✅ Shared on ${platform}!`);
+      }
+    }
+
+    // Track product view on page load
+    waitForTracker(() => {
+      console.log('[Test] Tracker initialized on product page');
+      updateDebug();
+      setInterval(updateDebug, 2000);
+
+      // Track product view
+      if (window.Tracker) {
+        window.Tracker.track('product_view', {
+          product_id: 'PROD-001',
+          product_name: 'Premium Wireless Headphones',
+          price: 299000,
+          currency: 'IDR',
+          category: 'Electronics'
+        });
+        incrementEventCount();
+        console.log('[Test] Product view tracked');
+      }
+    });
+
+    console.log('%c=================================', 'color: #667eea; font-weight: bold;');
+    console.log('%cPRODUCT PAGE - CEKAT TRACK TEST', 'color: #667eea; font-weight: bold; font-size: 16px;');
+    console.log('%c=================================', 'color: #667eea; font-weight: bold;');
+    console.log('Product view should be automatically tracked');
+    console.log('Try: Add to cart, Buy now, Share buttons');
+  </script>
+</body>
+</html>
